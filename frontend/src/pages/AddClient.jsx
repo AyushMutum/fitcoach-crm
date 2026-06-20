@@ -42,10 +42,14 @@ export default function AddClient() {
     }
   }, [id, isEdit]);
 
-  const update = (field) => (e) => setForm({ ...form, [field]: e.target.value });
-  const updateEmergency = (field) => (e) => setForm({
-    ...form, emergencyContact: { ...form.emergencyContact, [field]: e.target.value },
-  });
+  const update = (field) => (e) => {
+    const value = e.target.value;
+    setForm(prev => ({ ...prev, [field]: value }));
+  };
+  const updateEmergency = (field) => (e) => {
+    const value = e.target.value;
+    setForm(prev => ({ ...prev, emergencyContact: { ...prev.emergencyContact, [field]: value } }));
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();

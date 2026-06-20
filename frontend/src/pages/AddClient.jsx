@@ -5,6 +5,15 @@ import { motion } from 'framer-motion';
 import { ArrowLeftIcon } from '@heroicons/react/24/outline';
 import toast from 'react-hot-toast';
 
+function Section({ title, children }) {
+  return (
+    <div className="glass-card p-6">
+      <h3 className="text-lg font-semibold text-white mb-4">{title}</h3>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">{children}</div>
+    </div>
+  );
+}
+
 const defaultForm = {
   fullName: '', email: '', phone: '', age: '', gender: 'Male',
   height: '', weight: '', address: '', fitnessGoal: '', medicalConditions: '',
@@ -62,13 +71,6 @@ export default function AddClient() {
       setLoading(false);
     }
   };
-
-  const Section = ({ title, children }) => (
-    <div className="glass-card p-6">
-      <h3 className="text-lg font-semibold text-white mb-4">{title}</h3>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">{children}</div>
-    </div>
-  );
 
   return (
     <div className="max-w-4xl mx-auto space-y-6">
